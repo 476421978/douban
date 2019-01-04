@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>mui豆瓣</title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="css/iconfont.css">
+	 <style type="text/css">
+		 *{
+			 padding: 0;
+			 margin: 0;
+		 }
+		.title{
+			height: 90px;
+			width: 100%;
+			padding: 10px;
+			background-color: white;
+		}
+		
+		.t-search{			
+			background-color: #C0C0C0;
+			border-radius: 5px;
+		}
+		
+		.t-saoma{
+			width: 20px;
+			height: 20px;
+			position: absolute;
+		 	right: 20px;
+		 	top: 12px;
+		}
+		
+		.title-menu ul{
+			margin-top: 10px;
+			display: flex;
+			padding-left: 0;
+		}
+		
+		.title-menu ul li{
+			flex: 1;
+			list-style: none;
+		}
+    </style>
+</head>
+<body>
+	<div>
+		<div class="title">
+			<!-- 搜索 -->
+			<div class="t-search">
+				<span class="mui-icon mui-icon-search"></span>						  	        
+	  	        <input placeholder="请输入搜索内容" style="border: 0px; background-color: #C0C0C0;"/>
+				<span><img src="images/saoma.png" class="t-saoma"/></span>
+			</div>
+			<!-- 导航 -->
+			<div class="title-menu">
+				<ul>
+					<li style="text-align: center;">
+						<span style="border-bottom: 1px solid #6D6D72;">电影</span>
+					</li>
+					<li>电视</li>
+					<li>综艺</li>
+					<li>读书</li>
+					<li>音乐</li>
+					<li>同城</li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer">
+			<nav class="mui-bar mui-bar-tab">
+			    <a class="mui-tab-item mui-active">
+			        <span class="mui-icon mui-icon-home"></span>
+			        <span class="mui-tab-label">首页</span>
+			    </a>
+			    <a class="mui-tab-item">
+			        <span class="mui-icon iconfont icon-books"></span>
+			        <span class="mui-tab-label">书影音</span>
+			    </a>
+			    <a class="mui-tab-item">
+			        <span class="mui-icon iconfont icon-xiaozu"></span>
+			        <span class="mui-tab-label">小组</span>
+			    </a>
+				 <a class="mui-tab-item">
+				    <span class="mui-icon iconfont icon-shiji"></span>
+				    <span class="mui-tab-label">市集</span>
+				</a>
+			    <a class="mui-tab-item">
+			        <span class="mui-icon iconfont icon-wode"></span>
+			        <span class="mui-tab-label">我的</span>
+			    </a>
+			</nav>
+		</div>
+	</div>
+	
+	  <script type="text/javascript" charset="utf-8">
+	  	mui.init({
+			subpages:[{
+				url:'html/main.html',
+				id:'html/main.html',
+				styles:{
+					top:'75px',
+					bottom:'50px'
+				}
+			}]
+		});
+	</script>
+</body>
+</html>

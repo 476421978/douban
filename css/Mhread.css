@@ -1,0 +1,35 @@
+/* 热门标题 */
+
+			.m-hread{
+				height: 50px;
+				line-height: 50px;		
+			}
+			
+			.m-hread ul {
+				display: flex;
+				margin: 0 10px;
+				padding-left: 0;
+				border-bottom: 1px solid #B6B6B6;
+			}
+			
+			.m-hread ul li{
+				list-style: none;
+			}
+			
+			.m-hread ul li:first-child{
+				border-bottom: 2px solid black;
+			}
+			
+			.m-hread h4{
+				line-height: 39px;
+				
+			}
+			.m-hread h5{
+				line-height: 39px;
+				margin-left: 10px;
+			}
+			
+			.m-hread-txt{
+				position: absolute;
+				right: 10px;
+			}

@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/Mhread.css" rel="stylesheet" />
+		<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+		<style>
+		
+			.m-menu ul{
+				display: flex;
+				padding-left: 0;
+				text-align: center;
+			}
+			
+			.m-menu ul li{
+				flex-grow: 1;
+				list-style: none;
+				
+			}
+			
+			.menu-bg{
+				margin: 0 auto;
+			}
+			
+			.m-menu ul li img{
+				width: 30px;
+				height: 30px;
+			}
+			
+			.m-menu ul li:first-child .menu-bg{
+				width: 50px;
+				border-radius: 50px;
+				background-color: #007AFF;
+			}
+			
+			.m-menu ul li:nth-child(2) .menu-bg{
+				width: 50px;
+				border-radius: 50px;
+				background-color: #F0AD4E;
+			}
+			
+			.m-menu ul li:nth-child(3) .menu-bg{
+				width: 50px;
+				border-radius: 50px;
+				background-color: #2AC845;
+			}
+			
+			.m-menu ul li:nth-child(4) .menu-bg{
+				width: 50px;
+				border-radius: 50px;
+				background-color: #6641E2;
+			}
+			
+			.menu-txt{
+				margin-top: 5px;
+			}
+			
+			.mui-slider{
+				height: 200px;
+			}
+			
+			.mui-slider img{
+				height: 200px;
+			}
+			
+			.m-content{
+				height: auto;
+				width: 100%;
+				overflow: hidden;
+			}
+			
+			.m-content ul{
+				padding-left: 10px;
+				display: flex;
+				flex-wrap:wrap
+			}
+			
+			.m-content ul li{
+				text-align: center;
+				margin-left: 10px;
+				list-style: none;
+			}
+						
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="mui-content">
+				<div class="m-menu">
+					<ul>
+						<li>
+							<div class="menu-bg">
+								<img src="../images/s.png" />
+							</div>
+							<div class="menu-txt">
+								<p>找电影</p>
+							</div>
+						</li>
+						<li>
+							<div class="menu-bg">
+								<img src="../images/b.png" />
+							</div>
+							<div class="menu-txt">
+								<p>豆瓣榜单</p>
+							</div>
+						</li>
+						<li>
+							<div class="menu-bg">
+								<img src="../images/d.png" />
+							</div>
+							<div class="menu-txt">
+								<p>豆瓣猜</p>
+							</div>
+						</li>
+						<li>
+							<div class="menu-bg">
+								<img src="../images/p.png" />
+							</div>
+							<div class="menu-txt">
+								<p>豆瓣片单</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!-- 轮播图 -->		
+				<div class="sliderShow">
+					<div id="slider" class="mui-slider" >
+					  <div class="mui-slider-group mui-slider-loop">
+						<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+						  <a href="#">
+							<img src="../images/p4.webp">
+						  </a>
+						</div>
+						<!-- 第一张 -->
+						<div class="mui-slider-item">
+						  <a href="#">
+							<img src="../images/p1.webp">
+						  </a>
+						</div>
+						<!-- 第二张 -->
+						<div class="mui-slider-item">
+						  <a href="#">
+							<img src="../images/p2.webp">
+						  </a>
+						</div>
+						<!-- 第三张 -->
+						<div class="mui-slider-item">
+						  <a href="#">
+							<img src="../images/p3.webp">
+						  </a>
+						</div>
+						<!-- 第三张 -->
+						<div class="mui-slider-item">
+						  <a href="#">
+							<img src="../images/p4.webp">
+						  </a>
+						</div>
+						<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+						  <a href="#">
+							<img src="../images/p1.webp">
+						  </a>
+						</div>
+					  </div>
+					  <div class="mui-slider-indicator">
+						<div class="mui-indicator mui-active"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+					  </div>
+					</div>
+				</div>
+				<!-- 电影标题 -->
+				<div class="m-hread">	
+					<ul>
+						<li><h4>影院热映</h4></li>
+						<li><h5>即将上映</h5></li>
+						<li>
+							<div class="m-hread-txt">
+							全部 29<span class="mui-icon mui-icon-forward"></span>
+							</div>
+						</li>	
+					</ul>
+				</div>
+				<!-- 电影介绍 -->
+				<div class="m-content">
+					<ul>
+						<li v-for="item in movies" @click="go(item)">	
+							<div>
+								<img :src="item.imgUrl" style="width: 100px;height: 150px;" >
+							</div>
+							<p>
+								{{item.name}}	
+							</p>
+							<p>
+								{{item.recomment}}
+							</p>
+						</li>
+					</ul>
+				</div>
+			</div>		
+				
+		
+		</div>
+		
+		<script src="../js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init()
+
+			new Vue({
+				el:"#app",
+				data:{
+					movies:[
+						{"year":"2018","name":"无双","autor":"庄文强","editor":"庄文强","act":"周润发 / 郭富城 / 张静初 / 冯文娟 / 廖启智 / 周家怡 / 王耀庆 / 方中信 / 高捷 / 邢佳栋 / 张松枝 / 张建声 / 吴嘉龙 / 孙佳君","type":"剧情 / 动作 / 犯罪","from":"中国大陆 / 香港","lan":"汉语普通话 / 粤语 / 英语 / 泰语 / 波兰语","data":"2018-09-30(中国大陆) / 2018-10-04(香港)","time":"130分钟","name2":"Project Gutenberg / Mo seung","IMDB":"http://www.imdb.com/title/tt7183578","recomment":"8.1","man":"379108","url":"https://movie.douban.com/subject/26425063","":"","imgUrl":"https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2535096871.jpg"},
+						{"year":"2018","name":"黑镜：潘达斯奈基","autor":"大卫·斯雷德","editor":"查理·布鲁克","act":"菲恩·怀特海德 / 克雷格·帕金森 / 爱丽丝·洛维 / 阿西姆·乔杜里 / 威尔·保尔特 / 塔露拉·哈登 / 卡特里奥·诺克斯 / 保罗·布拉德利 / 乔纳森·阿里斯 / A·J·霍顿 / 弗勒尔·基思 / 劳拉·埃弗兰 / 阿伦·阿萨德 / 苏珊妮·伯登 / 杰夫·明特 / 乔恩-乔·英克彭 / 汤姆·麦卡尔 / 埃利·皮尔西 / 斯蒂芬·拉什布鲁克 / 罗森达·桑德尔 / 桑德拉·特蕾丝","type":"剧情 / 科幻 / 悬疑 / 惊悚","from":"英国 / 美国","lan":"英语","data":"2018-12-28(美国)","time":"90分钟 / 312分钟(交互总时长)","name2":"黑镜：2018圣诞特别篇","IMDB":"http://www.imdb.com/title/tt9495224","recomment":"7.3","man":"15945","url":"https://movie.douban.com/subject/30414462","":"","imgUrl":"https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2543862640.jpg"},
+						{"year":"2018","name":"饺子公主","autor":"安妮·弗莱彻","editor":"克里斯汀·哈恩 / 朱莉·墨菲","act":"丹妮尔·麦克唐纳 / 詹妮弗·安妮斯顿 / 奥德娅·拉什 / 麦迪·贝里欧 / 贝克斯·泰勒-克劳斯 / 卢克·本沃德 / 乔姬·弗劳瑞斯 / 德芙·卡梅隆 / 哈罗德·佩里诺 / 凯茜·纳基麦 / 希拉里·贝格利 / 丹·芬纳蒂 / 安德鲁·弗莱彻 / 奥图姆·戴尔 / 布茹克·哈特佐格 / 塔根·伯恩斯","type":"剧情 / 喜剧 / 歌舞","from":"美国","lan":"英语","data":"2018-12-07(美国)","time":"110分钟","name2":"","IMDB":"http://www.imdb.com/title/tt4878482","recomment":"5.9","man":"359","url":"https://movie.douban.com/subject/26997630","":"","imgUrl":"https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2542639397.jpg"},
+						{"year":"2018","name":"毒液：致命守护者","autor":"鲁本·弗雷斯彻","editor":"杰夫·皮克纳 / 斯科特·罗森伯格 / 凯莉·马塞尔 / 托德·麦克法兰 / 戴维·麦克法兰","act":"汤姆·哈迪 / 米歇尔·威廉姆斯 / 里兹·阿迈德 / 斯科特·黑兹 /  瑞德·斯科特 / 珍妮·斯蕾特 / 梅罗拉·沃特斯 / 伍迪·哈里森 / 佩吉·陆 / 马尔科姆·C·默里 / 索佩·阿卢科 / 韦恩·佩雷 / 米歇尔·李 / 库尔特·岳 / 克里斯·奥哈拉 / 埃米里奥·瑞弗拉 / 阿里亚当娜·约瑟夫 / 袁之正 / 朴云龙 / 麦克·勃兰特 / 尼克·图恩 / 山姆·麦地那 / 迪塞尔·马德金斯 / 简·麦克尼尔 / 维克托·麦凯 / 马丁·巴特斯·布拉德福德 / 布兰顿·莫拉莱斯 / 马修·康威尔 / 斯坦·李 / 韦德·威廉姆斯 / 约瑟夫·阿梅 / 威廉·W·巴伯 / 玛塞拉·布拉吉奥 / 卡特·伯奇 / 克里斯蒂安·康佛瑞 / 詹姆斯·富尔特斯 / 丹妮拉·加斯基 / 约翰·盖蒂尔 / 艾米丽塔·T·冈萨雷斯 / 杰克·汉森 / 安东尼·B·哈里斯 / 卡茜·亨德利 / 罗恩·彼得·琼斯 / 霍梅洛·洛佩兹 / 万恩·姆约维奇","type":"动作 / 科幻 / 惊悚","from":"美国 / 中国大陆","lan":"英语 / 汉语普通话","data":"2018-11-09(中国大陆) / 2018-10-05(美国)","time":"112分钟 / 107分钟(中国大陆)","name2":"毒魔(港) / 猛毒(台) / 毒液","IMDB":"http://www.imdb.com/title/tt1270797","recomment":"7.3","man":"359528","url":"https://movie.douban.com/subject/3168101","":"","imgUrl":"https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2537158013.jpg"},
+						{"year":"2018","name":"网络谜踪","autor":"阿尼什·查甘蒂","editor":"阿尼什·查甘蒂 / 赛弗·奥哈尼安","act":"约翰·赵 / 米切尔·拉 / 黛博拉·梅辛 / 约瑟夫·李 / 萨拉·米博·孙 / 亚历克丝·杰恩·高 / 梅金·刘 / 刘卡雅 / 多米尼克·霍夫曼 / 西尔维亚·米纳西安 / 梅丽莎·迪斯尼 / 康纳·麦克雷斯 / 科林·伍德尔 / 约瑟夫·约翰·谢尔勒 / 阿什丽·艾德纳 / 考特尼·劳伦·卡明斯 / 托马斯·巴布萨卡 / 朱莉·内桑森 / 罗伊·阿布拉姆森 / 盖奇·比尔托福 / 肖恩·奥布赖恩 / 瑞克·萨拉比亚 / 布拉德·阿布瑞尔 / 加布里埃尔·D·安吉尔","type":"剧情 / 悬疑 / 惊悚 / 犯罪","from":"美国 / 俄罗斯","lan":"英语","data":"2018-12-14(中国大陆) / 2018-01-20(圣丹斯电影节) / 2018-08-24(美国)","time":"102分钟","name2":"人肉搜寻(港) / 人肉搜索(台) / 搜索 / 屏幕搜索","IMDB":"http://www.imdb.com/title/tt7668870","recomment":"8.5","man":"177471","url":"https://movie.douban.com/subject/27615441","":"","imgUrl":"https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2542848758.jpg"},
+						{"year":"2018","name":"一出好戏","autor":"黄渤","editor":"黄渤 / 张冀 / 郭俊立 / 查慕春 / 崔斯韦 / 邢爱娜 / 黄湛中","act":"黄渤 / 舒淇 / 王宝强 / 张艺兴 / 于和伟 / 王迅 / 李勤勤 / 李又麟 / 宁浩 / 管虎 / 梁静 / 徐峥 / 陈德森 / 张磊","type":"剧情 / 喜剧","from":"中国大陆","lan":"汉语普通话","data":"2018-08-10(中国大陆)","time":"134分钟","name2":"大富翁 / 诳想曲 / The Island","IMDB":"http://www.imdb.com/title/tt8755316","recomment":"7.1","man":"487569","url":"https://movie.douban.com/subject/26985127","":"","imgUrl":"https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2529571873.jpg"},
+					],
+					mm:'我日',
+				},
+				methods:{
+					go:function(e){
+					 	var data = e;
+						mui.openWindow({
+							url:'detail.html',
+							id:'deatil.html',
+							extras:{							
+								'ww':data
+							},
+						})
+					}
+				}
+			})
+		
+		
+			//获得slider插件对象
+			var gallery = mui('.mui-slider');
+			gallery.slider({
+			  interval:3000//自动轮播周期，若为0则不自动播放，默认为0；
+			});
+		</script>
+	</body>
+
+</html>

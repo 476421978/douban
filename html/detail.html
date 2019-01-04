@@ -1,0 +1,545 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+		<script src="../js/mui.js"></script>
+		
+		<style type="text/css">
+			.t-bg{
+				background-color:rgba(0,206,209,0.5);
+			}
+			.t-bg-txt{
+				color:white;
+			}
+			.t-bg-img{
+				width: 20px;
+				height: 20px; 
+				position: absolute;
+				right: 10px;
+				top:11px;
+			}
+			
+			.d-contnet{
+				display: flex;
+				padding: 18px;
+				margin-top: 44px;
+				background-color:rgba(0,206,209,0.4);
+			}
+			
+			.d-contnet img{
+				width: 100px;
+				height: 150px;
+			}
+			
+			.d-detail{
+				flex: 1;
+				margin:0 10px;
+			}
+			
+			.d-detail p{
+				color: white;
+			}
+			
+			.d-detail p:nth-child(3){
+				color: black;
+			}
+			
+			.d-detail img{
+				width: 20px;
+				height: 20px;
+				margin-right: 5px;
+			}
+			
+			.r-recomment{
+				padding: 18px;
+				background-color:rgba(0,206,209,0.4); ;
+			}
+			
+			.recommend-txt{
+				position: relative;
+			}
+			
+			.recommend-xx{
+				display: flex;
+				padding: 5px;
+			}
+			
+			.recommend-xx p{
+				
+			}
+			
+			.recommend-txt2{
+				margin-top: 20px;
+				width: 100px;
+				text-align: center;
+			}
+			
+			.recommend-txt2 p{
+				color: white;
+				font-size: 25px;
+			}
+			
+			.recommend-txt2 img{
+				width: 15px;
+				height: 20px;
+			}
+			
+			.recommend-txt2 ul {
+				padding-left: 0;
+				display: flex;
+				justify-content:center
+			}
+			
+			.recommend-txt2 ul li{
+				list-style: none;
+			}
+			
+			.recommend-pre{
+				flex: 1;
+			}
+			
+			.recommend-pre ul{
+				
+			}
+			
+			.recommend-pre ul li {
+				list-style: none;
+				float: left;
+			}
+			
+			.mui-progressbar{
+				width: 100px;
+			}
+			
+			.recommend-pre-div{
+				margin-left: 10px;
+			}
+			
+			.recommend-pre-div img{
+				width: 15px;
+				height: 15px;
+			}
+			
+			
+			.r-play{
+				position: relative;
+				
+			}
+			
+			.r-play-left{
+				display: flex;
+				margin-top: 10px;
+			}
+			
+			.r-play-left img{
+				width:20px;
+				height: 20px;
+			}
+				
+			.r-play-left ul{
+				margin: 0;
+				display: flex;
+				flex: 1;
+				justify-content: flex-end;
+			}
+			
+			.r-play-left ul li{
+				list-style: none;
+				margin-right: 10px;
+			}	
+			
+			.r-play-right{
+				display: flex;
+			}
+			
+			.r-play-right-txt{
+				width: 70px;
+			}
+			
+			
+			
+			.r-play-right-ul{
+				flex: 1;
+				overflow: hidden;
+			}
+			
+			.r-play-right-ul li{
+				margin-right: 10px;
+				background-color:rgba(61,58,57,0.3);
+				border-radius: 90px;  
+				padding: 0 10px; 
+			}
+			
+			.r-play-right-ul li:first-child{
+				color: white;
+			}
+			
+			.r-play-right ul{
+				overflow-x: scroll;
+				padding: 0;
+				margin: 0;
+				height: 37px;
+				width: 1000px;
+			}
+			
+			.r-play-right ul li{	
+				list-style: none;
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="mui-content">
+				<header class="mui-bar mui-bar-nav t-bg">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: white;"></a>
+					<h1 class="mui-title t-bg-txt">电影</h1>
+					<img src="../images/share.png" class="t-bg-img" />
+				</header>
+				
+				<div class="d-contnet">
+					<div>
+						<img :src="mm.imgUrl" />
+					</div>
+					<div class="d-detail">
+						<p>{{mm.name}}</p>
+						<p>{{mm.data}}</p>
+						<p>{{mm.from}}{{mm.type}}上映时间:{{mm.year}}/片长:{{mm.time}}</p>
+						<div>
+							<button><img src="../images/bt1.png"/>想看</button>
+							<button><img src="../images/bt2.png"/>看过</button>
+						</div>
+					</div>
+				</div>
+								
+				<div class="r-recomment">
+					<div class="recommend-txt">
+						<span>
+							豆瓣评分
+							<span class="mui-badge mui-badge-inverted" style="position: absolute;top:0;">TM</span>
+						</span>						
+						<span class="mui-icon mui-icon-arrowright" style="position: absolute;right: 10px;"></span>
+					</div>
+					<div class="recommend-xx">
+						<div class="recommend-txt2">
+							<p>8.3</p>
+							<ul>
+								<li><img src="../images/xx2.png"/></li>
+								<li><img src="../images/xx2.png"/></li>
+								<li><img src="../images/xx2.png"/></li>
+								<li><img src="../images/xx2.png"/></li>
+								<li><img src="../images/xx.png"/></li>
+							</ul>
+						</div>
+						<div class="recommend-pre">
+							<ul>
+								<li>
+									<div class="recommend-pre-div" style="display: flex;">
+										<div>
+											<ul style="padding-left: 0;">
+												<li style="display: flex;justify-content: flex-end;width: 70px;">
+													<img src="../images/xx2.png"/>
+													<img src="../images/xx2.png"/>
+													<img src="../images/xx2.png"/>
+													<img src="../images/xx2.png"/>
+													<img src="../images/xx2.png"/>
+												</li>
+											</ul>
+										</div>
+										<div class="recommend-pre-div" style="margin-top: 5px;flex: 1;" >
+											<div id="demo1" class="mui-progressbar" ><span></span></div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="recommend-pre-div" style="display: flex;">
+										<div>
+											<ul style="padding-left: 0;">
+												<li style="display: flex;justify-content: flex-end;width: 70px;">
+													<img src="../images/xx2.png"/>
+													<img src="../images/xx2.png"/>
+													<img src="../images/xx2.png"/>
+													<img src="../images/xx2.png"/>
+												</li>
+											</ul>
+										</div>
+										<div class="recommend-pre-div" style="margin-top: 5px;" >
+											<div id="demo2" class="mui-progressbar" ><span></span></div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="recommend-pre-div" style="display: flex;">
+										<div>
+											<ul style="padding-left: 0;">
+												<li style="display: flex;justify-content: flex-end;width: 70px;">
+													<img src="../images/xx2.png"/>
+													<img src="../images/xx2.png"/>
+													<img src="../images/xx2.png"/>
+												</li>
+											</ul>
+										</div>
+										<div class="recommend-pre-div" style="margin-top: 5px;" >
+											<div id="demo3" class="mui-progressbar" ><span></span></div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="recommend-pre-div" style="display: flex;">
+										<div>
+											<ul style="padding-left: 0;">
+												<li style="display: flex;justify-content: flex-end;width: 70px;">
+													<img src="../images/xx2.png"/>
+													<img src="../images/xx2.png"/>
+												</li>
+											</ul>
+										</div>
+										<div class="recommend-pre-div" style="margin-top: 5px;" >
+											<div id="demo4" class="mui-progressbar" ><span></span></div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="recommend-pre-div" style="display: flex;">
+										<div>
+											<ul style="padding-left: 0;">
+												<li style="display: flex;justify-content: flex-end;width: 70px;">
+													<img src="../images/xx2.png"/>
+												</li>
+											</ul>
+										</div>
+										<div class="recommend-pre-div" style="margin-top: 5px;" >
+											<div id="demo5" class="mui-progressbar" ><span></span></div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>					
+					<div style="border-top: 1px solid #969896; display: flex;justify-content: flex-end;">
+						<p style="margin-right: 10px; font-size: 15px;">761.8K人看过</p>
+						<p style="font-size: 15px;">343.7K人想看</p>
+					</div>
+				</div>
+				<!-- 滑动简介 -->
+				<div class="r-play">
+					<div class="r-play-left">
+						<img src="../images/play.png"/>
+						<p style="margin-left: 10px;">播放全片</p>
+						<ul>
+							<li><img src="../images/play1.png" ></li>
+							<li><img src="../images/play2.png" ></li>
+							<li><img src="../images/play3.png" ></li>
+							<li><span class="mui-icon mui-icon-forward"></span></li>
+						</ul>
+					</div>
+					<div class="r-play-right">
+						
+						<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+							<div class="mui-scroll">
+								<!-- <p class="r-play-right-txt">所属频道</p> -->
+								<div class="r-play-right-ul">
+									<ul>
+										<li class="mui-control-item">
+											<p style="margin: 0;color: white;">所属频道</p>
+										</li>
+										<li class="mui-control-item" >
+											香港电影<span class="mui-icon mui-icon-arrowright" style="border: 0;margin: 0;color: #6D6D72;"></span>
+										</li>
+										<li class="mui-control-item">
+											犯罪<span class="mui-icon mui-icon-arrowright" style="border: 0;margin: 0;color: #6D6D72;"></span>
+										</li>
+										<li class="mui-control-item">
+											悬疑<span class="mui-icon mui-icon-arrowright" style="border: 0;margin: 0;color: #6D6D72;"></span>
+										</li>
+										<li class="mui-control-item">
+											警匪<span class="mui-icon mui-icon-arrowright" style="border: 0;margin: 0;color: #6D6D72;"></span>
+										</li>
+										<li class="mui-control-item">
+											剧情片<span class="mui-icon mui-icon-arrowright" style="border: 0;margin: 0;color: #6D6D72;"></span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+				
+				<div>
+					<h4>简介</h4>
+					<p>
+					　《无双》讲述了以代号“画家”（周润发 饰）为首的犯罪团伙，掌握了制造伪钞技术，难辨真伪，
+					并在全球进行交易获取利益，引起警方高度重视。然而“画家”和其他成员的身份一直成谜，
+					警方的破案进度遭受到了前所未有的挑战。在关键时刻，擅长绘画的李问（郭富城 饰）打开了破案的突破口，
+					而“画家”的真实身份却让众人意想不到……
+					</p>
+				</div>
+				
+				<!-- 演员表 -->
+				<div>
+					<div style="display: flex;">
+						<h4>演职员</h4>
+						<span style="position: absolute; right: 10px;">全部25<span class="mui-icon mui-icon-forward"></span></span>
+					</div>
+					
+					<div style="position: relative; height: 200px;">
+						<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted" style="height: 200px;">
+							<div class="mui-scroll" style="100px">
+								<!-- <p class="r-play-right-txt">所属频道</p> -->
+								<div class="r-play-right-ul">
+									<ul style="margin: 0; padding: 0; overflow: ;">
+										<li class="mui-control-item" style="border-radius: 0; margin: 0; background-color:#efeff4; 
+											padding: 0 0 0 10px; " >
+											<img src="../images/pp1.webp " style="height: 145px;width: 100px; display: block; font-size: 0;" >
+											<span style="line-height: 20px;display: block;">庄文强</span>
+											<p style="line-height: 15px;">导演</p>
+										</li>
+										<li class="mui-control-item" style="border-radius: 0; margin: 0; background-color:#efeff4; 
+											padding: 0; padding: 0 0 0 10px;" >
+											<img src="../images/pp2.webp " style="height: 145px;width: 100px; display: block; font-size: 0;" >
+											<span style="line-height: 20px;display: block;">周润发</span>
+											<p style="line-height: 15px;">饰 画家</p>
+										</li>
+										<li class="mui-control-item" style="border-radius: 0; margin: 0; background-color:#efeff4; 
+											padding: 0; padding: 0 0 0 10px;" >
+											<img src="../images/pp3.webp " style="height: 145px;width: 100px; display: block; font-size: 0;" >
+											<span style="line-height: 20px;display: block;">郭富城</span>
+											<p style="line-height: 15px;">饰 李问</p>
+										</li>
+										<li class="mui-control-item" style="border-radius: 0; margin: 0; background-color:#efeff4; 
+											padding: 0; padding: 0 0 0 10px;" >
+											<img src="../images/pp4.webp " style="height: 145px;width: 100px; display: block; font-size: 0;" >
+											<span style="line-height: 20px;display: block;">张静初</span>
+											<p style="line-height: 15px;">饰 阮文</p>
+										</li>
+										<li class="mui-control-item" style="border-radius: 0; margin: 0; background-color:#efeff4; 
+											padding: 0; padding: 0 0 0 10px;" >
+											<img src="../images/pp5.webp " style="height: 145px;width: 100px; display: block; font-size: 0;" >
+											<span style="line-height: 20px;display: block;">冯文娟</span>
+											<p style="line-height: 15px;">饰 吴秀清</p>
+										</li>
+											<li class="mui-control-item" style="border-radius: 0; margin: 0; background-color:#efeff4; 
+											padding: 0; padding: 0 0 0 10px;" >
+											<img src="../images/pp6.webp " style="height: 145px;width: 100px; display: block; font-size: 0;" >
+											<span style="line-height: 20px;display: block;">廖启智</span>
+											<p style="line-height: 15px;">饰 鑫叔</p>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+				<!-- 评论 -->
+				<div style="background-color:rgba(0,206,209,0.4); padding: 10px;">
+					<div style="display: flex;">
+						<h4 style="color: #f3f3f3;">短评</h4>
+						<span style="position: absolute; right: 10px; color: #797979;">全部135114<span class="mui-icon mui-icon-arrowright"></span></span>
+					</div>
+					
+					<div style="margin-top: 10px;">
+						<ul style="padding: 0;">
+							<li style="list-style: none; border-bottom: 1px solid #777777; margin-top: 10px;" v-for="(item,index) in recomments">
+								<div style="display: flex;">
+									<div>
+										<img :src="item.imgUrl" style="height: 35px;width: 35px;border-radius: 90px; margin-right: 5px;" />
+									</div>
+									<div>
+										<span>{{item.autor}}</span>
+										<div>
+											<img src="../images/xx2.png" style="height: 15px;width: 15px;" >
+											<img src="../images/xx2.png" style="height: 15px;width: 15px;" >
+											<img src="../images/xx2.png" style="height: 15px;width: 15px;" >
+											<img src="../images/xx2.png" style="height: 15px;width: 15px;" >
+											<img src="../images/xx2.png" style="height: 15px;width: 15px;" >
+											{{item.data}}
+										</div>
+									</div>
+									<div style="position: absolute; right: 10px;">
+										<img src="../images/shenglue.png" style="height: 25px;width: 25px;" />
+									</div>
+								</div>
+								<div style="color: white; font-size: 15px; font-weight: 100;">
+									{{item.content}}
+								</div>				
+								<div style="margin:10px 0;">
+									<img :src="getLink(index)" style="height: 15px;width: 15px;" @click="linkClick(index)" >
+									<span style="color: #797979;font-size: 15px;">{{getAgree(item.agree)}}k</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		<script type="text/javascript">
+			mui.init()
+ 			mui('#demo1').progressbar({progress:20}).show();
+			mui('#demo2').progressbar({progress:30}).show();
+			mui('#demo3').progressbar({progress:50}).show();
+			mui('#demo4').progressbar({progress:40}).show();
+			mui('#demo5').progressbar({progress:70}).show(); 
+			
+			
+			
+			var vue = new Vue({
+				el:'#app',
+				data:{
+					mm:'',
+					recomments:[
+					{"agree":"7302","good":"有用","linkState":"false:;","autor":"壹安²","url":"https://www.douban.com/people/rayland/","look":"看过","data":"2018-09-24","content":"前几年很欣喜有《树大招风》《追龙》，今年又有这部《无双》，感谢这些导演还能找到初心，让港片无法被取代。剧情终于不再是简单的黑白对垒和人性光辉，主题线的丰富让谎言戳穿的时候，留下最痛的纪念品。最后，重回枪林弹雨的发哥，你一定不能错过。","report":"举报","js2":"javascript:void(0)","imgUrl":"https://img3.doubanio.com/icon/u3409691-133.jpg","":""},
+					{"agree":"5559","good":"有用","linkState":"false:;","autor":"何小沁","url":"https://www.douban.com/people/hexiaoqin/","look":"看过","data":"2018-09-24","content":"导演说，拍这部电影是想让现在的年轻人知道，发哥意味着什么——还用问嘛，意味着天下无双的帅啊！！怀揣艺术匠心开创假钞帝国的大亨，乍听有点像奥斯卡路数的枭雄传记片，影片整体那种复古质感也很好。片中周润发多次小马哥附体，颜值，大长腿，最重要的是又雅又痞，风度翩翩，一比这届鲜肉真是弱爆了。郭天王也很好玩，这次演个怂包（伪）。发哥和城城真是强攻&弱受组合，对话完全是个喜剧片（当然两位演技都很棒，搞笑也能立住不垮），看到最后又一切都能说通了，也到最后才知道片名是什么含义。今年国庆档三强，无双、影、李茶的姑妈，居然都是讲一个人的真假身份，有趣。","report":"举报","js2":"javascript:void(0)","imgUrl":"https://img1.doubanio.com/icon/u10969301-317.jpg","":""},
+					{"agree":"5341","good":"有用","linkState":"false:;","autor":"春天不是赶稿天","url":"https://www.douban.com/people/zcs1222/","look":"看过","data":"2018-09-30","content":"美术系学生看了会沉默，金融系学生看了会流泪。","report":"举报","js2":"javascript:void(0)","imgUrl":"https://img3.doubanio.com/icon/u43285764-30.jpg","":""},
+					{"agree":"3121","good":"有用","linkState":"false:;","autor":"乌鸦火堂","url":"https://www.douban.com/people/dreamfox/","look":"看过","data":"2018-09-27","content":"“我的价值就是作假！”今年国庆档最佳，伪钞版“战争之王”，庄文强擅长犯罪事件描述和正反角色冲突，缺点是有些啰嗦，故事太细生怕观众看不懂。前半段伪钞制作部分大开眼界，后半段人性矛盾激化，高智商人才却选择造假，耐人寻味。结尾大反转，借鉴了西方两部著名作品，但仍然精彩，瞒天过海、以假乱真。演员都不错，发哥暴走段落致敬黄金时代的英雄片，是这个“真实的故事”中浪漫的情怀之梦","report":"举报","js2":"javascript:void(0)","imgUrl":"https://img3.doubanio.com/icon/u2297669-12.jpg","":""},
+				
+					],
+				},
+				methods:{
+					getAgree:function(i){
+						return Math.floor(i/1000*10)/10
+					},
+					linkClick:function(i){
+						this.recomments[i].linkState = !this.recomments[i].linkState
+					},
+					getLink:function(i){
+						if(this.recomments[i].linkState){
+							return '../images/like2.png'
+						}else{
+							return '../images/like.png'
+						}
+					},
+					getRe:function(){
+						
+					}
+				}
+			})
+			
+			mui.plusReady(function(){
+				var sData = plus.webview.currentWebview();	
+				vue.mm = sData.ww
+			});
+		
+			
+		
+			
+			
+		</script>
+	</body>
+
+</html>
